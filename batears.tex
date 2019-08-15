@@ -1,7 +1,13 @@
 \documentclass{article}
 
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[plain]{fancyref}
+\usepackage{siunitx}
+
+
 \title{Rought Draft Bat Bio Sonar Report}
-\author{Angeline Luther}
+\author{Angeline Luther\thanks{Advisors: Dr G Coxson and Dr D Evangelista, United States Naval Academy}}
 \date{\today}
 
 % use (Author, Year) natbib references
@@ -12,53 +18,41 @@
 \maketitle
 
 \begin{abstract}
-  Bats are cool. Bats have powerful sonar capabilities which are desireable to replicate for man-made sonar systems. Researchers have attributed their ability to navigate their surroundings and search for prey to their biological features and behavioral mannerisms. A few of these aspects include the properties of the ear, such as the greater horseshoe bat’s antitragus and ridge, as well as their fast moving ears.
+Sonar (sound navigation and ranging) is the use of sound waves in order to understand distances to objects and obstacles, speeds, and other environmental information.  Bats, a highly speciose group fo flying mammals in order Chiroptera, possess a biological active sonar, in the form of echolocation: the animal transmits high frequency ultrasound its mouth and/or nose, and receives return signals with the ears.  Based on how long it takes to receive a returned signal, a bat can locate objects such as insect prey, walls, obstacles, other bats, or other aerial predators in pitch black conditions. This ability may be partially responsible for bats' worldwide distribution everywhere except Antarctica, since they first appeared during the Eocene. Along with time, Doppler frequency shifts in the sound signals can help discriminate between multiple echoes and can provide information about the target's course, speed, and other activities. Bats move their relatively large and highly contoured ears while using echolocation; researchers have theorized that movements and shape changes are potentially important in determining receiver characteristics and in utilizing Doppler shift information. My work this summer developed physical models of the left and right ears of a greater horseshoe bat (\emph{Rhinolophus sp}), to provide initial designs for a robotic system able to test hypotheses about the relationship between bat ear movement and shape change to active sonar reception.  
 \end{abstract}
 
 \section{Introduction}
-\citep{pannala2013investigation, pannala2013interplay}
-%Considerations
-%
-%Bat anatomy
-%
-%	Bat muscle diagram
-%
-%		The large muscle extending from the antitragus to under the chin (P. auris) is the probably controller for the movements VT was looking into
-%
-%Bat Ear Anatomy
-%Desired Ear Movement
-%
-%	Watched videos of bats
-%
-%		Johns Hopkins Bat Lab has bat videos online
-%
-%Basic desired motions
-%
-%One ear moving forward, other ear still:
-%One ear moving back, other ear still:
-%Both ears moving forward:
-%Both ears moving backward:
-%Diagram from Investigation of Dynamic Ultrasound Reception in Bat BIosonar using a Biomimetic Pinna Model, Mittu Pannala
-%
-%References checked
-%
-%
-%Videos and articles from Virginia Tech
-%
-%	VT bases their models on greater horseshoe bats
-%	VT is looking for movement in the upward and downward motion of the ear, they don’t care as much about side to side motion
-%	Virginia Tech’s previous model focused on curving the ear downwards and back
-%
-%I read through articles on actuators, and it isn’t worth it to look at actuators that aren’t regarded as fast for the final product, assuming you will want to emulate the bat ear fast movement
+
+\subsection{Bat anatomy}
+The bat external ear (\fref{fig:1}) consists of a large cartilaginous pinna (plural pinnae); the pinna has ridges and incisions that stiffen it mechanically and also likely shape sound reception \citep{heine2004anatomy, pannala2013investigation, pannala2013interplay, schouten2019principles}. Mesially, and at the base of the external ear, is a knobby cartilaginous structure called an antitragus. Several muscles insert on the pinna around the base, including one (\emph{mus.~p.~auris}) that extends a strap of muscle from the antitragus, underneath the chin, and to the antitragus on the other ear. The various muscles of the external ear in bats provide for several possible movements that pan or tilt the ear or that can change its curvature. Notably, the ear musculature acts at the base of the ear, where it will not add additional moving mass that must be moved back and forth each cycle; this location also avoids having muscle blocking reception of sound. 
+\begin{figure}[h]
+\caption{(a) Bat ear anatomy, after \citep{pannala2013investigation}. (b) Desired ear movement for physical model.}
+\label{fig:1}
+\end{figure}
+
+\subsection{Required ear movements}
+Virginia Tech graciously provided 3D printable pinna designs based on \emph{Rhinolophus} as a starting point for my efforts. In the Virginia Tech work, the primary direction of movement is pitching forward and back?, lateral side to side motion is less studied. The previous Virginia Tech design also used a soft pneumatic actuator to curve the ears downwards and back.% what does this mean?  
+
+While I was not able to examine live bats first hand, I viewed videos of bats provided by the Johns Hopkins Bat lab (LINK HERE) to gain insight into typical ear movements in \emph{Rhinolophus}. Based on my observations, I recommend functional requirements for the bat ear robot to be able to pitch the ears fore/aft both symmetrically (both ears left and right moving together) and asymmetrically (left and right ears moving independently). These are depicted in \fref{fig:2}. These directions of motion are different from those of previous ear designs, and thus may provide new information about ear function and new opportunities to try alternative, faster actuation methods. 
+\begin{figure}[h]
+\caption{(a) Asymmetric ear movement, forward; (b) asymmetric ear movement, back; (c) symmetric ear movement, forward; (d) symmetric ear movement, back. After \citep{pannala2013investigation}.}
+\label{fig:2}
+\end{figure}
+
+Bat ears move at relatively fast speed compared to other vertebrate motions (\SI{50}{\hertz} according to (SOURCE). I believe soft pneumatic actuators are unlikely to actuate fast enough, adn thus recommend examining other actuation methods in the future (see below) \citep{hines2017soft}. 
+
+
+
 
 
 \section{Methods and materials}
-%Steps Taken
-%
-%Servos
-%
-%	Used two servos
-%		
+I developed sketch models of a two-ear actuated robot to be used in testing hypotheses about the relationship between ear movement and shape and sonar reception. The pinnae were approximating using simple cones of standard \SI{8.5x11}{in} office paper and were actuated using four micro size servos (two per ear) driven by a microcontroller. Initially, an Arduino UNO and Adafruit Servo Shield (both available from Adafruit, New York, NY); these were later changed to an mbed LPC1768 (NXP Semiconductors, Eindhoven) and an EW200/202 development board provided by the US Naval Academy. A piece of expanded polystyrene foam was used as a base with string and wire to couple the servos to the pinnae. A photo of the rig is in \fref{fig:3}.
+\begin{figure}[h]
+\caption{Fred the Bat rig}
+\label{fig:3}
+\end{figure}
+
+The ear movements were coded one by one to aid in debugging. By using more than one servo per ear I accomplished (????).  The final ear design was capable of (WHATEVER IT WAS CAPABLE OF). 
 %		Started with only one ear, adding movement in both the forward and backward directions
 %	Added two more Servos along with a second ear
 %		Created ear motion both in and out of sync
@@ -66,21 +60,18 @@
 %
 
 
+
+
+
 \section{Recommendations for future work}
-%Further steps
-%
-%Use the actuators with an ear that is more accurate than the paper ones I made (interplay of static and dynamic features in biomimetic smart ears states that the features of the bat ear increase sonar performance of the bat (p.8)). 
-%
-%	I would use the 3D bat ear file from VT but make it slimmer so it can be manipulated easier
-%
-%	Maybe implement the tugging mechanism inside of the ear so that it is flush with the ear
-%
-%Research and implement faster actuators
-%	It’s worth looking into PZT (piezoelectric) and EPAM (electroactive polymer “artificial muscle”) actuators
-%
-%Try 3 servos/actuators per ear
-%	To create a wider range of motion (some left and right motion)
-%
+The styrofoam and paper construction was useful in starting to see how a physical model ear robot should be constructed. For future work, I recommend use of actuators that provide more accurate positioning and move faster. \citep{pannala2013interplay} states that the features of the bat ear increase sonar performance of the bat (SO WHAT DOES THIS MEAN FOR US?). 
+
+The .stl file provided by Virginia Tech has rather thick sections that are both heavy and stiff; to actuate at prototypical speeds would require large amounts of force.  Future work should examine 3Dp printing a thinner section that minimizes moving mass and stiffness, and that is actuated from near the base using a fast actuator capable of the necessary fast movements. If the mechanisms are flush with the ear they may reduce any air drag (if necessary in flight hardware) or avoid blocking the reception path of ultrasound. 
+
+I recommend future work research and implement faster actuators, such as lead zirconate titanate (PZT, a piezoelectric material) and EPAM (electroactive polymer ``artificial muscle'') actuators. In addition, to provide a wider range of motion, including left/right lateral motion, I recommend increasing the actuators to three per ear. This also mimics the arrangement of muscles of the outer ear. 
+
+\section*{Acknowledgements}
+Thanks to Mr Joe Bradshaw and Mr Dan Rhoades for their assistance in printing ears, and (WHATEVER THE PROGRAM NAME IS). 
 
 % References
 \bibliography{references/batears.bib}
