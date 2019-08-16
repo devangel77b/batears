@@ -7,6 +7,7 @@
 \usepackage{siunitx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{listings}
+\lstset{basicstyle=\ttfamily}
 
 
 \title{Bat Bio Sonar Report}
@@ -45,14 +46,14 @@ While I was not able to examine live bats first hand, I viewed videos of bats pr
 \label{fig:2}
 \end{figure}
 
-Bat ears move at relatively fast speed compared to other vertebrate motions (\SI{50}{\hertz}, \SI{200}{\milli\second} cycle time according to \cite{pannala2013interplay}. I believe soft pneumatic actuators are unlikely to actuate fast enough, adn thus recommend examining other actuation methods in the future (see below) \citep{hines2017soft}. 
+Bat ears move at relatively fast speed compared to other vertebrate motions (\SI{50}{\hertz}, \SI{200}{\milli\second} cycle time according to \cite{pannala2013interplay}). I believe soft pneumatic actuators are unlikely to actuate fast enough, and thus recommend examining other actuation methods \citep{hines2017soft} in the future (see below). 
 
 
 
 
 
 \section{Methods and materials}
-I developed sketch models of a two-ear actuated robot to be used in testing hypotheses about the relationship between ear movement and shape and sonar reception. The pinnae were approximating using simple cones of standard \SI{8.5x11}{in} office paper and were actuated using four micro size servos (two per ear) driven by a microcontroller. Initially, an Arduino UNO and Adafruit Servo Shield (both available from Adafruit, New York, NY); these were later changed to an mbed LPC1768 (NXP Semiconductors, Eindhoven) and an EW200/202 development board provided by the US Naval Academy. A piece of expanded polystyrene foam was used as a base with string and wire to couple the servos to the pinnae. A photo of the rig is in \fref{fig:3}.
+I developed sketch models of a two-ear actuated robot to be used in testing hypotheses about the relationship between ear movement and shape and sonar reception. The pinnae were approximating using simple cones of standard \SI{8.5x11}{in} office paper and were actuated using four micro size servos (two per ear) driven by a microcontroller. Initially, an Arduino UNO and Adafruit Servo Shield (both available from Adafruit, New York, NY); these were later changed to an mbed LPC1768 (NXP Semiconductors, Eindhoven) and an EW200/202 development board provided by the US Naval Academy. A piece of expanded polystyrene foam was used as a base with string and wire to couple the servos to the pinnae. A photo of the rig is in \fref{fig:3}. A complete repository of all microcontroller C code is at \url{https://os.mbed.com/teams/Bat-Ear-Code/code/multiServoBat/}. 
 \begin{figure}[h]
 \begin{center}
 %\includegraphics[width=3in]{figures/IMG_20190809_161409615.jpg}
@@ -63,7 +64,7 @@ I developed sketch models of a two-ear actuated robot to be used in testing hypo
 \label{fig:3}
 \end{figure}
 
-The ear movements were coded one by one to aid in debugging. By using more than one servo per ear, the ears can move both forward and backwards from the rest position, increasing the range of moton.  
+The ear movements were coded one by one to aid in debugging. By using more than one servo per ear, the ears can move both forward and backwards from the equilibrium rest position, increasing the range of moton.  
 
 The final ear design was capable of moving the ears forward and backward together symmetrically, contralateral, asymmetric motion forwards/backwards independent of one another, and combined movements that consist of both symmetric and asymmetric components. Additionally, my design is able to move the ears out of sync with one another, using a \lstinline{Timer} object to coordinate the ears based on the time that has passed, rather than in regards to the other movements the ear makes.  
 
@@ -80,7 +81,7 @@ The .stl file provided by Virginia Tech has rather thick sections that are both 
 I recommend future work research and implement faster actuators, such as lead zirconate titanate (PZT, a piezoelectric material) and EPAM (electroactive polymer ``artificial muscle'') actuators. In addition, to provide a wider range of motion, including left/right lateral motion, I recommend increasing the actuators to three per ear. This also mimics the arrangement of muscles of the outer ear. 
 
 \section*{Acknowledgements}
-Thanks to Mr Joe Bradshaw and Mr Dan Rhoades for their assistance in printing ears, and USNA STEM Programs. We thank R. Muller, students at Virginia Tech, and the Whitehead Lab for providing a 3D printable ear design and advice on the required ear movements. 
+Thanks to Mr.~Joe Bradshaw and Mr.~Dan Rhodes for their assistance in printing ears, and to USNA STEM Programs. We thank R. M{\"u}ller, students at Virginia Tech, and the Whitehead Lab for providing a 3D printable ear design and advice on the required ear movements. 
 
 % References
 \bibliography{references/batears.bib}
