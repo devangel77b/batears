@@ -2,6 +2,7 @@
 
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{graphicx}
+\usepackage{svg}
 \usepackage[plain]{fancyref}
 \usepackage{siunitx}
 \usepackage[hidelinks]{hyperref}
@@ -31,7 +32,7 @@ The bat external ear (\fref{fig:1}) consists of a large cartilaginous pinna (plu
 \begin{center}
 \includegraphics[width=3in]{figures/bat_muscles.jpg}
 \end{center}
-\caption{Bat ear anatomy, from \citep{pannala2013investigation}. The pinna serves both as a mechanical flexure for attaching and steering the ear, and as an acoustic waveguide for directing received pulses to the inner ear.}
+\caption{\emph{Rhinolophus} ear anatomy, from \citep{pannala2013investigation}. The pinna serves both as a mechanical flexure for attaching and steering the ear, and as an acoustic waveguide for directing received pulses to the inner ear.}
 \label{fig:1}
 \end{figure}
 
@@ -54,10 +55,11 @@ Bat ears move at relatively fast speed compared to other vertebrate motions (\SI
 I developed sketch models of a two-ear actuated robot to be used in testing hypotheses about the relationship between ear movement and shape and sonar reception. The pinnae were approximating using simple cones of standard \SI{8.5x11}{in} office paper and were actuated using four micro size servos (two per ear) driven by a microcontroller. Initially, an Arduino UNO and Adafruit Servo Shield (both available from Adafruit, New York, NY); these were later changed to an mbed LPC1768 (NXP Semiconductors, Eindhoven) and an EW200/202 development board provided by the US Naval Academy. A piece of expanded polystyrene foam was used as a base with string and wire to couple the servos to the pinnae. A photo of the rig is in \fref{fig:3}.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=3in]{figures/IMG_20190809_161409615.jpg}
+%\includegraphics[width=3in]{figures/IMG_20190809_161409615.jpg}
+\includesvg{figures/fred-the-bat.svg}
 % todo later: add callouts and scale bar
 \end{center}
-\caption{Fred the Bat rig. Add callouts and scale bar.}
+\caption{Fred the Bat rig.}
 \label{fig:3}
 \end{figure}
 
